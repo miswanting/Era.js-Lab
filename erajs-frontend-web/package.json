@@ -1,0 +1,36 @@
+{
+  "name": "erajs-frontend-web",
+  "version": "0.1.0",
+  "description": "Web FrontEnd of Era.js",
+  "main": "index.js",
+  "repository": "https://github.com/miswanting/Era.js-Lab",
+  "author": "Miswanting",
+  "license": "GPL-3.0+",
+  "scripts": {
+    "init": "yarn",
+    "dev": "yarn vite",
+    "build": "yarn vue-tsc --noEmit && vite build",
+    "serve": "yarn vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "latest",
+    "@mdi/font": "latest",
+    "intro.js": "latest",
+    "normalize.css": "latest",
+    "vue": "next",
+    "vue-i18n": "next",
+    "vue-router": "next",
+    "vuex": "next"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "pug": "^3.0.2",
+    "stylus": "^0.54.8",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-windicss": "^1.2.5",
+    "vue-tsc": "latest",
+    "windicss": "^3.1.5"
+  }
+}
