@@ -23,6 +23,7 @@
     "vuex": "next"
   },
   "devDependencies": {
+    "@rollup/plugin-yaml": "^3.0.0",
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "pug": "^3.0.2",
@@ -30,6 +31,7 @@
     "typescript": "latest",
     "vite": "latest",
     "vite-plugin-windicss": "^1.2.5",
+    "vite-plugin-yaml": "^1.0.5",
     "vue-tsc": "latest",
     "windicss": "^3.1.5"
   }

@@ -1,7 +1,7 @@
 <template lang="pug">
 header.flex.cursor-pointer
   .flex
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") File
+    .p-1(class="hover:bg-gray-300 active:bg-gray-400") {{ $t('File') }}
     .p-1(class="hover:bg-gray-300 active:bg-gray-400") Edit
     .p-1(class="hover:bg-gray-300 active:bg-gray-400") View
     .p-1(class="hover:bg-gray-300 active:bg-gray-400") Tool
@@ -32,3 +32,13 @@ header.flex.cursor-pointer
     .p-1(class="hover:bg-gray-300 active:bg-gray-400")
       i.fas.fa-fw.fa-window-close
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useI18n } from "vue-i18n";
+export default defineComponent({
+  setup() {
+    const {} = useI18n();
+  },
+});
+</script>

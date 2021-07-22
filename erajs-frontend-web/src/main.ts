@@ -3,6 +3,9 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 import 'virtual:windi.css'
 
+import en from './locales/en.yml'
+import zh from './locales/zh.yml'
+
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -46,6 +49,12 @@ const router = createRouter({
   ]
 })
 app.use(router)
-const i18n = createI18n({})
+const i18n = createI18n({
+  locale: 'zh',
+  fallbackLocale: 'en',
+  messages: {
+    en, zh
+  }
+})
 app.use(i18n)
 app.mount('body')
