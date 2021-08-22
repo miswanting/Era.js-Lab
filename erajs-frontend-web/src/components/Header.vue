@@ -1,44 +1,69 @@
 <template lang="pug">
-header.flex.cursor-pointer
+header.flex.cursor-pointer.select-none
   .flex
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") {{ $t('File') }}
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") Edit
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") View
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") Tool
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") Window
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400") Help
-  .flex-grow.p-1.text-center.cursor-move Era.js
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('File') }}
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('Edit') }}
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('View') }}
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('Tool') }}
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('Window') }}
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    ) {{ $t('Help') }}
+  .flex-grow.p-1.text-center.cursor-move {{ $t('Era.js') }}
   .flex
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700",
+      @click="$store.commit('locale/toggle')"
+    )
       i.fas.fa-fw.fa-language
     .p-1(
-      class="hover:bg-gray-300 active:bg-gray-400",
-      @click="$store.state.theme.commit('toggleTheme')"
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700",
+      @click="$store.commit('theme/toggleTheme')"
     )
-      i.fas.fa-fw.fa-sun(v-if="$store.state.theme.light")
-      i.fas.fa-fw.fa-moon(v-else)
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+      i.fas.fa-fw.fa-moon(v-if="$store.state.theme.dark")
+      i.fas.fa-fw.fa-sun(v-else)
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    )
       i.fas.fa-fw.fa-heart
       i.fas.fa-fw.fa-heart-broken
       i.fas.fa-fw.fa-heartbeat
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    )
       i.fas.fa-fw.fa-user
       i.fas.fa-fw.fa-user-secret
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    )
       i.fas.fa-fw.fa-window-minimize
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+    .p-1(
+      class="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800 dark:active:bg-gray-700"
+    )
       i.fas.fa-fw.fa-window-maximize
       i.fas.fa-fw.fa-window-restore
-    .p-1(class="hover:bg-gray-300 active:bg-gray-400")
+    .p-1(
+      class="hover:bg-red-200 active:bg-red-300 dark:hover:bg-red-900 dark:active:bg-red-800"
+    )
       i.fas.fa-fw.fa-window-close
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useI18n } from "vue-i18n";
+// import { useI18n } from "vue-i18n";
 export default defineComponent({
-  setup() {
-    const {} = useI18n();
-  },
+  // setup() {
+  //   const {} = useI18n();
+  // },
 });
 </script>

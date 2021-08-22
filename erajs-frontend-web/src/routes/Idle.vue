@@ -1,7 +1,10 @@
 <template lang="pug">
-Header
-main.flex-grow
-Footer
+.flex-grow.rounded.shadow.border.border-gray-300.flex.flex-col(
+  class="dark:border-gray-700"
+)
+  Header
+  main.flex-grow.grid.place-items-center
+    div.text-gray-400 Start Backend
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

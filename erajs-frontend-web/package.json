@@ -23,16 +23,15 @@
     "vuex": "next"
   },
   "devDependencies": {
-    "@rollup/plugin-yaml": "^3.0.0",
+    "@rollup/plugin-yaml": "latest",
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
-    "pug": "^3.0.2",
-    "stylus": "^0.54.8",
+    "pug": "latest",
+    "stylus": "latest",
     "typescript": "latest",
     "vite": "latest",
-    "vite-plugin-windicss": "^1.2.5",
-    "vite-plugin-yaml": "^1.0.5",
+    "vite-plugin-windicss": "latest",
     "vue-tsc": "latest",
-    "windicss": "^3.1.5"
+    "windicss": "latest"
   }
 }

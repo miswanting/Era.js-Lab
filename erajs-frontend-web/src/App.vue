@@ -9,11 +9,16 @@ export default defineComponent({
   name: "App",
   components: { RouterView },
   mounted() {
-    console.log(this.$store);
-    this.$store.state.theme.commit(
-      "setIfLight",
-      !window.matchMedia("(prefers-color-scheme: dark)").matches
+    this.$store.commit(
+      "theme/setIfDark",
+      window.matchMedia("(prefers-color-scheme: dark)").matches
     );
+    document.body.addEventListener("keypress", (e) => {
+      if (e.key === "`") {
+        this.$store.commit("console/toggle");
+      }
+    });
+    this.$router.push('/AVG')
   },
 });
 </script>

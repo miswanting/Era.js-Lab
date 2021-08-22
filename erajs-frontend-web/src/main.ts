@@ -1,60 +1,58 @@
 import 'normalize.css'
 import '@fortawesome/fontawesome-free/css/all.css'
-import '@mdi/font/css/materialdesignicons.min.css'
+import './styles/index.styl'
 import 'virtual:windi.css'
-
-import en from './locales/en.yml'
-import zh from './locales/zh.yml'
+import 'virtual:windi-devtools'
 
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createI18n } from 'vue-i18n'
+
+import zh_CN from './locales/zh-CN.yml'
+import en_US from './locales/en-US.yml'
+import ja_JP from './locales/ja-JP.yml'
+
 import App from './App.vue'
 import Idle from './routes/Idle.vue'
-const app = createApp(App)
-const store = createStore({
+import Console from './routes/Console.vue'
+import AVGGame from './routes/AVGGame.vue'
+
+import themeStore from './stores/theme'
+import consoleStore from './stores/console'
+import localeStore from './stores/locale'
+
+window.app = createApp(App)
+
+window.store = createStore({
   modules: {
-    theme: {
-      namespaced: true,
-      state: () => ({
-        light: true
-      }),
-      mutations: {
-        setIfLight(state, value) {
-          state.light = value
-          if (state.light) {
-            document.documentElement.classList.add('light')
-          } else {
-            document.documentElement.classList.add('dark')
-          }
-        },
-        toggleTheme(state) {
-          state.light = !state.light
-          if (state.light) {
-            document.documentElement.classList.add('light')
-          } else {
-            document.documentElement.classList.add('dark')
-          }
-        }
-      }
-    }
+    theme: themeStore,
+    console: consoleStore,
+    locale: localeStore
   }
 })
-app.use(store)
-const router = createRouter({
+window.app.use(window.store)
+
+window.router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: Idle }
+    { path: '/idle', component: Idle },
+    { path: '/console', component: Console },
+    { path: '/AVG', component: AVGGame }
   ]
 })
-app.use(router)
-const i18n = createI18n({
-  locale: 'zh',
-  fallbackLocale: 'en',
+window.app.use(window.router)
+
+window.i18n = createI18n({
+  locale: 'zh-CN',
+  fallbackLocale: 'en-US',
+  globalInjection: true,
   messages: {
-    en, zh
+    'zh-CN': zh_CN,
+    'en-US': en_US,
+    'ja-JP': ja_JP,
   }
 })
-app.use(i18n)
-app.mount('body')
+window.app.use(window.i18n)
+
+window.app.mount('body')
