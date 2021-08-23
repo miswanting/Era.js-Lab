@@ -1,6 +1,7 @@
 <template lang="pug">
 .flex-grow.rounded.shadow.border.border-gray-300.flex.flex-col(
   class="dark:border-gray-700"
+  :class={rounded:!$store.isElectron,shadow:!$store.isElectron,border:!$store.isElectron}
 )
   Header
   main.flex-grow.grid.place-items-center

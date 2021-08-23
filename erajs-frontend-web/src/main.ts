@@ -22,6 +22,10 @@ import themeStore from './stores/theme'
 import consoleStore from './stores/console'
 import localeStore from './stores/locale'
 
+import isElectron from 'is-electron'
+
+window.isElectron = isElectron()
+
 window.app = createApp(App)
 
 window.store = createStore({

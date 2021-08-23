@@ -1,0 +1,15 @@
+{
+  "name": "erajs-desktop",
+  "version": "0.1.0",
+  "main": "dist/main.js",
+  "author": "Miswanting",
+  "license": "AGPL-3.0+",
+  "scripts": {
+    "dev":"yarn rollup -c",
+    "debug":"yarn electron ."
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "rollup": "latest"
+  }
+}

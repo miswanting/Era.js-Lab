@@ -16,6 +16,7 @@
     "@fortawesome/fontawesome-free": "latest",
     "@mdi/font": "latest",
     "intro.js": "latest",
+    "is-electron": "latest",
     "normalize.css": "latest",
     "vue": "next",
     "vue-i18n": "next",
