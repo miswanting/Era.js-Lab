@@ -4,4 +4,5 @@ interface Window {
   router: any;
   i18n: any;
   isElectron: boolean;
+  ws: WebSocket;
 }

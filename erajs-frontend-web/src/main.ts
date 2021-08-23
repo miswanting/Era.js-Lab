@@ -16,11 +16,14 @@ import ja_JP from './locales/ja-JP.yml'
 import App from './App.vue'
 import Idle from './routes/Idle.vue'
 import Console from './routes/Console.vue'
-import AVGGame from './routes/AVGGame.vue'
+import MUD from './routes/MUD.vue'
+import AVG from './routes/AVG.vue'
 
-import themeStore from './stores/theme'
-import consoleStore from './stores/console'
-import localeStore from './stores/locale'
+import theme from './stores/theme'
+import console from './stores/console'
+import locale from './stores/locale'
+import electron from './stores/electron'
+import ws from './stores/ws'
 
 import isElectron from 'is-electron'
 
@@ -30,9 +33,11 @@ window.app = createApp(App)
 
 window.store = createStore({
   modules: {
-    theme: themeStore,
-    console: consoleStore,
-    locale: localeStore
+    theme,
+    console,
+    locale,
+    electron,
+    ws
   }
 })
 window.app.use(window.store)
@@ -42,7 +47,8 @@ window.router = createRouter({
   routes: [
     { path: '/idle', component: Idle },
     { path: '/console', component: Console },
-    { path: '/AVG', component: AVGGame }
+    { path: '/mud', component: MUD },
+    { path: '/avg', component: AVG }
   ]
 })
 window.app.use(window.router)
@@ -60,3 +66,11 @@ window.i18n = createI18n({
 window.app.use(window.i18n)
 
 window.app.mount('body')
+
+// window.ws = new WebSocket("ws://localhost:8000/ws");
+// window.ws.addEventListener("open", () => {
+//   window.ws.addEventListener("message", (e) => {
+//     console.log(e);
+//   });
+//   window.ws.send("test");
+// });

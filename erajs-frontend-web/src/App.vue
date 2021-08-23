@@ -18,7 +18,10 @@ export default defineComponent({
         this.$store.commit("console/toggle");
       }
     });
-    this.$router.push('/AVG')
+    this.$store.commit("electron/set", window.isElectron);
+    this.$router.push("/idle");
+    
+    this.$store.dispatch("ws/init");
   },
 });
 </script>

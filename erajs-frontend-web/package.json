@@ -9,7 +9,7 @@
   "scripts": {
     "init": "yarn",
     "dev": "yarn vite",
-    "build": "yarn vue-tsc --noEmit && vite build",
+    "build": "yarn vue-tsc --noEmit && yarn vite build",
     "serve": "yarn vite preview"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "@vitejs/plugin-vue": "latest",
     "@vue/compiler-sfc": "latest",
     "pug": "latest",
+    "sass": "^1.38.0",
     "stylus": "latest",
     "typescript": "latest",
     "vite": "latest",

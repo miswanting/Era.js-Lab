@@ -5,7 +5,8 @@
   "author": "Miswanting",
   "license": "AGPL-3.0+",
   "scripts": {
-    "dev":"yarn rollup -c",
+    "init": "yarn",
+    "build":"yarn rollup -c",
     "debug":"yarn electron ."
   },
   "devDependencies": {
