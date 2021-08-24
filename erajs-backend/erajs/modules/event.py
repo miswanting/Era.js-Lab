@@ -1,11 +1,11 @@
 from threading import Thread
 from typing import Any, Callable, Dict, List, Optional
-
+from ..prototypes.singleton import Singleton
 from .debug import DebugManager
 from .tools import Tools
 
 
-class EventManager:
+class EventManager(Singleton):
     def __init__(self):
         super().__init__()
         self.dm = DebugManager()

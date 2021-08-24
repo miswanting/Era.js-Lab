@@ -44,4 +44,3 @@ def server():
 def start():
     t = Thread(target=server)
     t.start()
-    print(111)

@@ -1,11 +1,31 @@
+from os import walk
+from os.path import splitext
 from typing import Any, Dict, List, Optional
 
-from ..formats import csv
+from ..formats import (bson, config, csv, image, json, jsx, raw, save, text,
+                       yaml, zip)
 
 
 class IOProxy:
-    def get_io_by_ext(self):
-        pass
+    @staticmethod
+    def get_io_by_ext(ext: str):
+        if ext in ['.inf', '.ini', '.cfg', '.conf', '.config']:
+            return config
+        elif ext == '.csv':
+            return csv
+        elif ext == '.json':
+            return json
+        elif ext in ['.yml', '.yaml']:
+            return yaml
+        elif ext == '.zip':
+            return zip
+        elif ext == '.txt':
+            return text
+        elif ext in ['.save', '.sav']:
+            return save
+        else:
+            return raw
+
 
 class DataManager:
     """
@@ -84,38 +104,38 @@ class DataManager:
                 candidates.append(gdp)
         return candidates
 
-    def get_io_by_ext(self, ext: str):
-        if ext in ['.inf', '.ini', '.cfg', '.conf', '.config']:
-            return cfg_file
-        elif ext == '.csv':
-            return csv_file
-        elif ext == '.json':
-            return json_file
-        elif ext in ['.yml', '.yaml']:
-            return yaml_file
-        elif ext == '.zip':
-            return zip_file
-        elif ext == '.txt':
-            return text_file
-        elif ext in ['.save', '.sav']:
-            return save_file
-        else:
-            return raw_file
+    # def get_io_by_ext(self, ext: str):
+    #     if ext in ['.inf', '.ini', '.cfg', '.conf', '.config']:
+    #         return cfg_file
+    #     elif ext == '.csv':
+    #         return csv_file
+    #     elif ext == '.json':
+    #         return json_file
+    #     elif ext in ['.yml', '.yaml']:
+    #         return yaml_file
+    #     elif ext == '.zip':
+    #         return zip_file
+    #     elif ext == '.txt':
+    #         return text_file
+    #     elif ext in ['.save', '.sav']:
+    #         return save_file
+    #     else:
+    #         return raw_file
 
     def read(self, path: str):
         """
         # 读取文件到数据
         """
-        ext = os.path.splitext(path)[1].lower()
-        reader = self.get_io_by_ext(ext)
+        ext = splitext(path)[1].lower()
+        reader = IOProxy.get_io_by_ext(ext)
         return reader.read(path)
 
     def write(self, path: str, data: Any = None):
         """
         # 写入数据到文件
         """
-        ext = os.path.splitext(path)[1].lower()
-        writer = self.get_io_by_ext(ext)
+        ext = splitext(path)[1].lower()
+        writer = IOProxy.get_io_by_ext(ext)
         writer.write(path, data)
 
     def P2GDP(self, path: str, mod_id: Optional[str] = None):
@@ -144,7 +164,7 @@ class DataManager:
         # 递归文件夹路径下文件的路径
         """
         files: List[str] = []
-        for dirpath, _, filenames in os.walk(path, True):
+        for dirpath, _, filenames in walk(path, True):
             for filename in filenames:
                 files.append('{}\\{}'.format(dirpath, filename))
         return files

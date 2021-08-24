@@ -1,2 +1,10 @@
 from erajs import api as a
-a.init()
+
+
+def test():
+    print('test')
+
+
+if __name__ == '__main__':
+    a.init()
+    a.entry(test)
