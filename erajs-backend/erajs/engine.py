@@ -257,12 +257,12 @@ class Engine(Singleton):
         #     self.dem.info('Initialization Failed!')
         #     sys.exit(1)
         # send_config()
-        load_data_files()
-        register_resource_files()
-        load_mods()
-        self.dam.umount_all()
-        self.um.push('loaded')
-        self.dem.info('Initialization Done!')
+        # load_data_files()
+        # register_resource_files()
+        # load_mods()
+        # self.dam.umount_all()
+        # self.um.push('loaded')
+        # self.dem.info('Initialization Done!')
 
     def entry(self):
         pass

@@ -1,4 +1,7 @@
 
+from typing import Dict
+
+
 class ModManager:
     """
     # 模组管理器

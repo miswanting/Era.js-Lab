@@ -7,4 +7,4 @@ def test():
 
 if __name__ == '__main__':
     a.init()
-    a.entry(test)
+    # a.entry(test)

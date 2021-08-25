@@ -10,7 +10,7 @@ export default {
   },
   actions: {
     init({ state }: any) {
-      window.ws = new WebSocket("ws://localhost:8000/ws");
+      window.ws = new WebSocket(`ws://${window.location.host}/ws`);
       window.ws.addEventListener("open", () => {
         state.inited = true
         window.ws.addEventListener("message", (e) => {
