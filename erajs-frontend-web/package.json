@@ -10,6 +10,7 @@
     "init": "yarn",
     "dev": "yarn vite",
     "build": "yarn vue-tsc --noEmit && yarn vite build",
+    "watch": "yarn vue-tsc --noEmit && yarn vite build --watch",
     "serve": "yarn vite preview"
   },
   "dependencies": {

@@ -6,10 +6,12 @@
   "license": "AGPL-3.0+",
   "scripts": {
     "init": "yarn",
-    "build":"yarn rollup -c",
-    "debug":"yarn electron ."
+    "build": "yarn rollup -c",
+    "debug": "yarn electron .",
+    "dev": "yarn build && yarn debug"
   },
   "devDependencies": {
+    "@rollup/plugin-multi-entry": "^4.1.0",
     "electron": "latest",
     "rollup": "latest"
   }

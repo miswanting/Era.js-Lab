@@ -1,7 +1,10 @@
+import multi from '@rollup/plugin-multi-entry';
 export default {
-  input: 'src/main.ts',
+  input: ['src/main.ts', 'src/preload.ts'],
   output: {
-    file: 'dist/main.js',
-    format: 'cjs'
-  }
+    dir: 'dist',
+    format: 'cjs',
+  },
+  external: ['electron'],
+  plugins: [multi()]
 };

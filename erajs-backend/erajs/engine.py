@@ -251,7 +251,7 @@ class Engine(Singleton):
         fix_path()
         fix_fs_hierarchy()
         load_configs()
-        self.nm.start('localhost', 11994)
+        self.nm.start('localhost', 8080)
         self.dem.info('├─ Server Start!')
         # if not self.nm.connect('localhost', 11994):
         #     self.dem.info('Initialization Failed!')
