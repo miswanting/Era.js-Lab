@@ -1,0 +1,42 @@
+{
+  "name": "spancharm-vue",
+  "version": "0.1.0",
+  "license": "GPL-3.0+",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/spancharm-vue.umd.js",
+  "module": "./dist/spancharm-vue.es.js",
+  "types": "./dist/src/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/spancharm-vue.es.js",
+      "require": "./dist/spancharm-vue.umd.js"
+    }
+  },
+  "scripts": {
+    "init": "yarn",
+    "dev": "yarn vite",
+    "build": "yarn vue-tsc --noEmit && yarn vite build",
+    "serve": "yarn vite preview"
+  },
+  "dependencies": {
+    "csshake": "latest",
+    "normalize.css": "latest",
+    "vue": "next",
+    "vue-router": "next"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "latest",
+    "@types/node": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/compiler-sfc": "latest",
+    "rollup-plugin-typescript2": "latest",
+    "stylus": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-dts": "latest",
+    "vite-plugin-vue-docs": "latest",
+    "vue-tsc": "latest"
+  }
+}
