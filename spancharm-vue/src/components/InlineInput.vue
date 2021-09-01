@@ -10,6 +10,7 @@ span.inline-input.number(v-if="type === 'number'")
   span [
   span.value(@input="input", contenteditable) {{ props.modelValue }}
   span ]
+InlineRank(v-if="type === 'rank'", v-model="ttt")
 </template>
 
 <style lang="stylus" scoped>
@@ -32,7 +33,9 @@ span.inline-input.number(v-if="type === 'number'")
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import InlineRank from "./InlineRank.vue";
 const props = defineProps(["type", "modelValue", "default"]);
+const ttt=ref(3)
 let type: string;
 if (props.type === undefined) type = "text";
 else type = props.type;

@@ -16,6 +16,7 @@
   },
   "scripts": {
     "init": "yarn",
+    "clean": "rmdir /S /Q dist && rmdir /S /Q node_modules && del yarn.lock",
     "dev": "yarn vite",
     "build": "yarn vue-tsc --noEmit && yarn vite build",
     "serve": "yarn vite preview"
@@ -23,6 +24,7 @@
   "dependencies": {
     "csshake": "latest",
     "normalize.css": "latest",
+    "sanitize.css": "^12.0.1",
     "vue": "next",
     "vue-router": "next"
   },

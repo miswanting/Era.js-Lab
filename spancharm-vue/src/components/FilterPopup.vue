@@ -14,11 +14,11 @@ span.popup-filter(:class="{ enabled: props.enabled }")
     position absolute
     left 50%
     bottom 100%
-    backdrop-filter brightness(.9) blur(3px)
+    background-color #0001
+    backdrop-filter blur(3px)
     text-align center
     transform translateX(-50%)
     padding .2rem
-    border-radius .2rem
     width max-content
 
   &.enabled:hover > popup

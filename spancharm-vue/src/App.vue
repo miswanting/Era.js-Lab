@@ -144,12 +144,72 @@ Viewport
       FilterPopup(:enabled="isPopup", :value="popupText")
         FilterShake(:enabled="isShake", :forever="shakeForever")
           InlineProgress(
-            :value="3",
-            :max="5",
-            :width="100",
+            v-model="pValue",
+            :min="min",
+            :max="max",
+            :width="widgetWidth",
             color="red",
             bg-color="cyan"
           )
+    BlockLine(align="left")
+      InlineText Value:
+      InlineNumber(v-model="pValue")
+    BlockLine(align="left")
+      InlineText Width:
+      InlineNumber(v-model="widgetWidth")
+    BlockLine(align="left")
+      InlineText Min:
+      InlineNumber(v-model="min")
+    BlockLine(align="left")
+      InlineText Max:
+      InlineNumber(v-model="max")
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Disabled",
+        no="Enabled",
+        v-model="isDisabled"
+      )
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Enable Popup",
+        no="Disable Popup",
+        v-model="isPopup"
+      )
+    BlockLine(align="left", v-if="isPopup")
+      InlineText Popup Text:
+      InlineInput(v-model="popupText")
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Enable Shake",
+        no="Disable Shake",
+        v-model="isShake"
+      )
+      InlineCheck(
+        v-if="isShake",
+        :default="false",
+        yes="Shake Forever",
+        no="Shake for Mouse",
+        v-model="shakeForever"
+      )
+    BlockLine(align="left")
+      InlineText Text RGB:
+      InlineInput(type="color", v-model="color")
+      InlineText Background RGB:
+      InlineInput(type="color", v-model="bgColor")
+  BlockPage
+    BlockLine(align="left")
+      InlineHeading(:level="2") Color
+    BlockLine(align="center")
+      FilterPopup(:enabled="isPopup", :value="popupText")
+        FilterShake(:enabled="isShake", :forever="shakeForever")
+          InlineInput(type="color", v-model="color", default="#ffffff")
+    BlockLine(align="center")
+      FilterPopup(:enabled="isPopup", :value="popupText")
+        FilterShake(:enabled="isShake", :forever="shakeForever")
+          InlineColor(v-model="color")
     BlockLine(align="left")
       InlineText Value:
       InlineNumber(v-model="fr")
@@ -194,11 +254,60 @@ Viewport
       InlineInput(type="color", v-model="bgColor")
   BlockPage
     BlockLine(align="left")
-      InlineHeading(:level="2") Color
+      InlineHeading(:level="2") Rank
     BlockLine(align="center")
       FilterPopup(:enabled="isPopup", :value="popupText")
         FilterShake(:enabled="isShake", :forever="shakeForever")
-          InlineInput(type="color", v-model="color", default="#ffffff")
+          InlineInput(type="rank", v-model="pValue")
+    BlockLine(align="left")
+      InlineText Value:
+      InlineNumber(v-model="fr")
+    BlockLine(align="left")
+      InlineText Min:
+      InlineNumber(v-model="fr")
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Disabled",
+        no="Enabled",
+        v-model="isDisabled"
+      )
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Enable Popup",
+        no="Disable Popup",
+        v-model="isPopup"
+      )
+    BlockLine(align="left", v-if="isPopup")
+      InlineText Popup Text:
+      InlineInput(v-model="popupText")
+    BlockLine(align="left")
+      InlineCheck(
+        :default="false",
+        yes="Enable Shake",
+        no="Disable Shake",
+        v-model="isShake"
+      )
+      InlineCheck(
+        v-if="isShake",
+        :default="false",
+        yes="Shake Forever",
+        no="Shake for Mouse",
+        v-model="shakeForever"
+      )
+    BlockLine(align="left")
+      InlineText Text RGB:
+      InlineInput(type="color", v-model="color")
+      InlineText Background RGB:
+      InlineInput(type="color", v-model="bgColor")
+  BlockPage
+    BlockLine(align="left")
+      InlineHeading(:level="2") Rank
+    BlockLine(align="center")
+      FilterPopup(:enabled="isPopup", :value="popupText")
+        FilterShake(:enabled="isShake", :forever="shakeForever")
+          InlineNumber(v-model="pValue")
     BlockLine(align="left")
       InlineText Value:
       InlineNumber(v-model="fr")
@@ -292,6 +401,7 @@ const bgColor = ref("#ffffff");
 const pValue = ref(3);
 const min = ref(1);
 const max = ref(5);
+const widgetWidth = ref(100);
 
 import Viewport from "./components/Viewport.vue";
 import BlockPage from "./components/BlockPage.vue";
@@ -306,4 +416,5 @@ import InlineProgress from "./components/InlineProgress.vue";
 import InlineInput from "./components/InlineInput.vue";
 import InlineNumber from "./components/InlineNumber.vue";
 import InlineCheck from "./components/InlineCheck.vue";
+import InlineColor from "./components/InlineColor.vue";
 </script>

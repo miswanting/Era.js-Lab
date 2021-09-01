@@ -6,7 +6,7 @@
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
-    "isolatedModules": true,
+    // "isolatedModules": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": [

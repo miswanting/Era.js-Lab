@@ -14,7 +14,7 @@ span.inline-progress
   .inline-bar
     display inline-block
     text-align center
-    width v-bind('rate*100+"%"')
+    width v-bind('rate()*100+"%"')
     background-color v-bind('props.color')
 
     &::before
@@ -26,7 +26,7 @@ import { defineProps } from "vue";
 // Require: width, value, max, color, bg-color
 const props = defineProps([
   "width",
-  "value",
+  "modelValue",
   "min",
   "max",
   "low",
@@ -37,7 +37,12 @@ const props = defineProps([
   "bad-color",
   "bg-color",
 ]);
-const rate = props.min
-  ? props.value / (props.max - props.min)
-  : props.value / props.max;
+function rate() {
+  return props.min
+    ? (props.modelValue - props.min) / (props.max - props.min)
+    : props.modelValue / props.max;
+}
+// const rate = props.min
+//   ? props.modelValue / (props.max - props.min)
+//   : props.modelValue / props.max;
 </script>

@@ -1,5 +1,6 @@
 import 'csshake'
-import 'normalize.css'
+// import 'normalize.css'
+import 'sanitize.css'
 
 import { createApp } from 'vue'
 
